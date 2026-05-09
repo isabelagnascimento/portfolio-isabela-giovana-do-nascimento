@@ -43,7 +43,7 @@ Sou formada em Publicidade e Propaganda (2018) com cerca de 10 anos de experiên
 - `/analise-financeira-avancada-python/`: Ciência de dados e backtesting.
 
 ---
-[Voltar ao topo](#isabela-giovana-do-nascimento)
+⭐ *Sinta-se à vontade para explorar meus repositórios e entrar em contato!*
 
 ---
-⭐ *Sinta-se à vontade para explorar meus repositórios e entrar em contato!*
+[Voltar ao topo](#isabela-giovana-do-nascimento)
