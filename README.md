@@ -29,16 +29,29 @@ Sou formada em Publicidade e Propaganda (2018) com cerca de 10 anos de experiên
  
 ---
 ### 📂 Portfólio de Projetos
-*(Em breve, atualizarei esta seção com os meus primeiros projetos acadêmicos da UNICID!)*
 
-#### 🗃️ Análise de Dados e Programação
+#### 📊 Automação & Finanças
 | Projeto | Descrição | Link |
 | :--- | :--- | :---: |
-| **🚧 Em Construção** | Aplicação de conceitos de Python e Banco de Dados. | [Aguarde...](./) |
- 
+| **Relatório Financeiro Corporativo** | Automação que extrai dados reais da bolsa, simula investimentos e gera relatórios Excel com gráficos nativos. | [Ver Projeto](https://github.com/isabelagnascimento/relatorio-financeiro-python) |
+| **Análise Financeira Avançada** | Estudo quantitativo de ativos com indicadores técnicos (RSI, MACD), métricas de risco e backtesting de estratégias. | [Ver Projeto](https://github.com/isabelagnascimento/analise-financeira-avancada-python) |
+
+---
+ ### 📊 Minhas Estatísticas no GitHub
+
+<div align="center">
+  <img height="150" src="https://github-readme-stats.vercel.app/api?username=SEU_USUARIO_DO_GITHUB&show_icons=true&theme=radical&include_all_commits=true&count_private=true"/>
+  <img height="150" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SEU_USUARIO_DO_GITHUB&layout=compact&langs_count=7&theme=radical"/>
+</div>
+
 ---
 ### 🏗 Estrutura do Repositório
-Abaixo, a organização deste repositório para facilitar a navegação:
- 
-- `root/`: Arquivo de apresentação principal.
-- `/projeto-dados-exemplo/`: Pasta contendo o código-fonte, documentação e o README específico dos projetos futuros.
+- `root/`: Apresentação e links principais.
+- `/relatorio-financeiro-python/`: Automação corporativa.
+- `/analise-financeira-avancada-python/`: Ciência de dados e backtesting.
+
+---
+[Voltar ao topo](#isabela-giovana-do-nascimento)
+
+---
+⭐ *Sinta-se à vontade para explorar meus repositórios e entrar em contato!*
