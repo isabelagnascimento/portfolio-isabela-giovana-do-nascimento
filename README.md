@@ -34,16 +34,16 @@ Sou formada em Publicidade e Propaganda (2018) com cerca de 10 anos de experiên
 #### 🤖 Inteligência Artificial & Engenharia de Prompt
 | Projeto | Descrição | Link Interno |
 | :--- | :--- | :---: |
-| **A Corrida do Prompt** | Engenharia de instrução iterativa avaliada sob as óticas das Taxonomias de Bloom e Fink para geração de personas. | [Ver Pasta](./engenharia-prompt/) |
-| **Laboratório de Classificação Visual** | Treinamento de modelo computacional no Teachable Machine com inserção deliberada de vieses e memorial ético. | [Ver Pasta](./laboratorio-de-classificacao-visual/) |
-| **Batalha de Modelos (XML)** | Estudo comparativo de obediência de diretrizes estruturais e benchmarking de consumo de tokens entre 7 LLMs. | [Ver Pasta](./batalha-modelos-experiencia-03/) |
-| **Engenharia Reversa - Clone QR Code** | Análise sobre limites éticos do plágio comercial e o papel do desenvolvedor júnior como auditor de códigos gerados. | [Ver Pasta](./engenharia-reversa-clone-qr-code/) |
-| **MVP QR Code Create** | Desenvolvimento e validação de Produto Mínimo Viável focado em geração de códigos dinâmicos assistido por IA. | [Ver Pasta](./mvp-qr-code-create/) |
+| **A Corrida do Prompt** | Engenharia de instrução iterativa avaliada sob as óticas das Taxonomias de Bloom e Fink para geração de personas. | [Ver Pasta](./engenharia-prompt-main/) |
+| **Laboratório de Classificação Visual** | Treinamento de modelo computacional no Teachable Machine com inserção deliberada de vieses e memorial ético. | [Ver Pasta](./laboratorio-de-classificacao-visual-main/) |
+| **Batalha de Modelos (XML)** | Estudo comparativo de obediência de diretrizes estruturais e benchmarking de consumo de tokens entre 7 LLMs. | [Ver Pasta](./batalha-modelos-experiencia-03-main/) |
+| **Engenharia Reversa - Clone QR Code** | Análise sobre limites éticos do plágio comercial e o papel do desenvolvedor júnior como auditor de códigos gerados. | [Ver Pasta](./engenharia-reversa-clone-qr-code-main/) |
+| **MVP QR Code Create** | Desenvolvimento e validação de Produto Mínimo Viável focado em geração de códigos dinâmicos assistido por IA. | [Ver Pasta](./mvp-qr-code-create-main/) |
 
 #### 💻 Engenharia de Software & Plataformas Low-Code
 | Projeto | Descrição | Link Interno |
 | :--- | :--- | :---: |
-| **GameAds Manager** | Aplicação de gestão de anúncios desenvolvida no Bubble.io mitigando vulnerabilidades através de regras rígidas de privacidade. | [Ver Pasta](./engenharia-software-ia-bubble.io/) |
+| **GameAds Manager** | Aplicação de gestão de anúncios desenvolvida no Bubble.io mitigando vulnerabilidades através de regras rígidas de privacidade. | [Ver Pasta](./engenharia-software-ia-bubble.io-main/) |
 
 #### 📊 Automação & Análise Financeira (Projetos Externos)
 | Projeto | Descrição | Link Externo |
