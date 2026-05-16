@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Gaming | Mídia e Brand para Console e PC</title>
+    
+    <!-- Importação de Fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Montserrat (Sans-serif) para Títulos, Merriweather (Serif) para Corpo -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variáveis de Cores e Configurações Gerais */
+        :root {
+            --bg-color: #050505;
+            --text-color: #fdfdfd;
+            --primary-purple: #8A2BE2; /* Blue Violet */
+            --dark-purple: #240046;
+            --light-purple: #c77dff;
+            --white: #ffffff;
+            --font-title: 'Montserrat', sans-serif;
+            --font-body: 'Merriweather', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-title);
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: #cccccc;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--light-purple);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--white);
+        }
+
+        /* Container padrão */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--primary-purple);
+            color: var(--white);
+            font-family: var(--font-title);
+            font-weight: 600;
+            border-radius: 4px;
+            border: 2px solid var(--primary-purple);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-purple);
+        }
+
+        /* Cabeçalho e Navegação */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 5, 5, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--white);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--primary-purple);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            font-family: var(--font-title);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links li a:hover {
+            color: var(--primary-purple);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at center, var(--dark-purple) 0%, var(--bg-color) 70%);
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--white), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem auto;
+        }
+
+        /* Seções Gerais */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-purple);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Quem Somos */
+        #quem-somos .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--light-purple);
+        }
+
+        .about-image {
+            background-color: var(--dark-purple);
+            height: 400px;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--primary-purple);
+        }
+
+        .about-image::before {
+            content: 'Console & PC Focus';
+            font-family: var(--font-title);
+            font-weight: 900;
+            font-size: 2rem;
+            color: rgba(255,255,255,0.1);
+            transform: rotate(-45deg);
+            position: absolute;
+        }
+
+        /* Serviços */
+        #servicos {
+            background-color: #0a0a0a;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--bg-color);
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            border: 1px solid #222;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            text-align: left;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-purple);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-purple);
+            margin-bottom: 1.5rem;
+            font-family: var(--font-title);
+        }
+
+        /* Portfólio / Cases */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .case-card {
+            position: relative;
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: var(--dark-purple);
+            display: flex;
+            align-items: flex-end;
+            border: 1px solid #333;
+        }
+
+        .case-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.1) 100%);
+            z-index: 1;
+        }
+
+        .case-info {
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+            width: 100%;
+        }
+
+        .case-category {
+            font-family: var(--font-title);
+            font-size: 0.8rem;
+            color: var(--light-purple);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .case-title {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        /* Mapa e Atendimento */
+        #atendimento {
+            background-color: #0a0a0a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            height: 500px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500"><path d="M200,50 Q250,20 300,60 T400,100 T350,200 T250,300 T300,450" fill="none" stroke="%23240046" stroke-width="2"/><path d="M400,100 Q450,80 500,120 T600,100 T700,200 T650,300 T750,400" fill="none" stroke="%23240046" stroke-width="2"/></svg>');
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            border: 1px solid #222;
+        }
+
+        /* Fake abstract map lines purely for aesthetic background */
+        .map-overlay-lines {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                radial-gradient(circle at 30% 40%, rgba(138, 43, 226, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 70% 60%, rgba(138, 43, 226, 0.05) 0%, transparent 50%);
+        }
+
+        .map-pin {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+
+        .pin-dot {
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary-purple);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--primary-purple);
+            animation: pulse 2s infinite;
+        }
+
+        .pin-label {
+            font-family: var(--font-title);
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 8px;
+            background: rgba(0,0,0,0.7);
+            padding: 2px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        /* Posições aproximadas no container abstrato para América Latina */
+        .pin-mexico { top: 40%; left: 35%; }
+        .pin-sp { top: 70%; left: 60%; }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(138, 43, 226, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(138, 43, 226, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(138, 43, 226, 0); }
+        }
+
+        .map-text {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #020202;
+            padding: 60px 0 30px;
+            border-top: 1px solid #111;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: #888;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-purple);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #111;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            #quem-somos .content-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; /* Em um projeto real, aqui iria um menu hamburguer */ }
+            .map-container { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Nexus<span>Gaming</span></div>
+                <ul class="nav-links">
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#quem-somos">Quem Somos</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#cases">Cases</a></li>
+                    <li><a href="#atendimento">Presença</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container hero-content">
+            <h1>Elevando o nível do seu jogo.</h1>
+            <p>Agência de publicidade especializada em mídia de performance e branding estratégico exclusivo para desenvolvedoras e publishers de jogos de Console e PC.</p>
+            <a href="#cases" class="btn">Ver Nossos Projetos</a>
+        </div>
+    </section>
+
+    <!-- Quem Somos -->
+    <section id="quem-somos">
+        <div class="container">
+            <h2 class="section-title">Quem Somos</h2>
+            <div class="content-grid">
+                <div class="about-text">
+                    <h3>Players criando para Players</h3>
+                    <p>A Nexus Gaming nasceu de uma necessidade clara no mercado: agências tradicionais não entendem a jornada de compra de um jogador de PC ou Console. Nós entendemos a diferença entre um lançamento na Steam, uma campanha de wishlist e a certificação nos consoles da Sony ou Microsoft.</p>
+                    <p>Nosso público-alvo são <strong>desenvolvedoras indie e estúdios AA/AAA</strong> que precisam de um parceiro que fale a mesma língua da comunidade. Unimos criatividade, dados de plataformas (como Steam DB) e relacionamento com criadores de conteúdo para transformar seu título em um sucesso comercial.</p>
+                </div>
+                <div class="about-image">
+                    <!-- Representação visual minimalista/abstrata via CSS na tag head -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos">
+        <div class="container">
+            <h2 class="section-title">O que oferecemos</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">01</div>
+                    <h3>Brand Strategy</h3>
+                    <p>Construção de identidade visual, posicionamento de marca do jogo, criação de lore packs para imprensa e direção de arte para assets de loja (Steam/Epic).</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">02</div>
+                    <h3>Media Buying & UA</h3>
+                    <p>Aquisição de usuários qualificados. Campanhas de performance focadas em conversão (vendas diretas) e geração de Wishlists utilizando Reddit, Twitter Ads e YouTube.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">03</div>
+                    <h3>PR & Influencer Marketing</h3>
+                    <p>Mapeamento e contratação de streamers (Twitch/YouTube) alinhados ao gênero do seu jogo. Distribuição de chaves antecipadas e gestão de crises com a comunidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases de Projetos -->
+    <section id="cases">
+        <div class="container">
+            <h2 class="section-title">Cases de Sucesso</h2>
+            <div class="cases-grid">
+                <!-- Case 1: Relacionado ao Serviço 01 -->
+                <div class="case-card">
+                    <div class="case-info">
+                        <span class="case-category">Brand Strategy</span>
+                        <h3 class="case-title">Eldoria: The Awakening</h3>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Rebranding completo e otimização de página na Steam, resultando em aumento de 45% na taxa de conversão orgânica.</p>
+                    </div>
+                </div>
+                
+                <!-- Case 2: Relacionado ao Serviço 02 -->
+                <div class="case-card" style="background-color: #1a0b2e;">
+                    <div class="case-info">
+                        <span class="case-category">Media Buying & UA</span>
+                        <h3 class="case-title">Neon Strike (FPS)</h3>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Campanha de tráfego pago focada em Wishlists. Alcançamos 150.000 wishlists em 3 meses com um CPA reduzido em 30%.</p>
+                    </div>
+                </div>
+
+                <!-- Case 3: Relacionado ao Serviço 03 -->
+                <div class="case-card" style="background-color: #2b0c36;">
+                    <div class="case-info">
+                        <span class="case-category">Influencer Marketing</span>
+                        <h3 class="case-title">Hollow Shadows</h3>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Ativação simultânea com 50 streamers na Twitch durante a semana de lançamento, alcançando o Top 10 mais assistidos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mapa e Atendimento -->
+    <section id="atendimento">
+        <div class="container">
+            <h2 class="section-title">Atuação LatAm</h2>
+            
+            <div class="map-container">
+                <div class="map-overlay-lines"></div>
+                
+                <!-- Indicador México -->
+                <div class="map-pin pin-mexico">
+                    <div class="pin-dot"></div>
+                    <div class="pin-label">Cidade do México, MX</div>
+                </div>
+
+                <!-- Indicador São Paulo -->
+                <div class="map-pin pin-sp">
+                    <div class="pin-dot"></div>
+                    <div class="pin-label">São Paulo, BR</div>
+                </div>
+            </div>
+
+            <div class="map-text">
+                <p>Com escritórios estratégicos em <strong>São Paulo</strong> e no <strong>México</strong>, nossa equipe domina as nuances culturais e de localização, conectando seu jogo aos jogadores mais apaixonados da América Latina.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé (Contato Simulado) -->
+    <footer id="contato">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 1rem;">Nexus<span>Gaming</span></div>
+                    <p style="font-size: 0.9rem;">A agência definitiva para quem leva o mercado de games a sério.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Escritório SP</h4>
+                    <ul>
+                        <li><a href="#">Av. Paulista, 1000 - Bela Vista</a></li>
+                        <li><a href="#">São Paulo - SP, Brasil</a></li>
+                        <li><a href="#">contato.br@nexusgaming.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Escritório MX</h4>
+                    <ul>
+                        <li><a href="#">Av. Paseo de la Reforma, 250</a></li>
+                        <li><a href="#">CDMX, México</a></li>
+                        <li><a href="#">contacto.mx@nexusgaming.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#quem-somos">Quem Somos</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#cases">Portfólio</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Nexus Gaming Agency. Todos os direitos reservados. Focado em Console e PC.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <!-- Utilizando um link real da API do WhatsApp com um número simulado -->
+    <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20falar%20sobre%20o%20marketing%20do%20meu%20jogo." class="whatsapp-btn" target="_blank" rel="noopener noreferrer" title="Fale conosco no WhatsApp">
+        <!-- Ícone SVG inline do WhatsApp para não depender de bibliotecas externas de ícones -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+
+</body>
+</html>

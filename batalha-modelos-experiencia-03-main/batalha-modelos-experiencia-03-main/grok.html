@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PIXELFORGE - Agência de publicidade especializada em mídia e branding para jogos de console e PC.">
+    <title>PIXELFORGE | Mídia &amp; Branding para Jogos</title>
+    <style>
+        :root {
+            --purple: #9F4BFF;
+            --black: #0A0A0A;
+            --white: #F5F5F5;
+            --dark-purple: #6A0DAD;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, .nav-link {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* HEADER & NAV */
+        header {
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(159, 75, 255, 0.2);
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 0;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--purple);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo span {
+            font-size: 1.8rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+        
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--purple);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--purple);
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+        
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background-color: var(--white);
+            transition: all 0.3s ease;
+        }
+        
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0A0A0A 0%, #1A0033 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 70%, rgba(159, 75, 255, 0.15) 0%, transparent 50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            line-height: 1.05;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-text .highlight {
+            color: var(--purple);
+        }
+        
+        .hero-text p {
+            font-size: 1.35rem;
+            max-width: 480px;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: var(--purple);
+            color: white;
+            padding: 18px 42px;
+            border-radius: 9999px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(159, 75, 255, 0.4);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(159, 75, 255, 0.6);
+        }
+        
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .game-icon {
+            width: 320px;
+            height: 320px;
+            background: linear-gradient(135deg, var(--purple), #6A0DAD);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 180px;
+            box-shadow: 0 0 80px rgba(159, 75, 255, 0.6),
+                        inset 0 0 60px rgba(255,255,255,0.3);
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-25px); }
+        }
+        
+        /* SECTIONS */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--purple);
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 4px;
+        }
+        
+        /* QUEM SOMOS */
+        #quem-somos {
+            background: #110022;
+        }
+        
+        .quem-somos-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .quem-somos-text p {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            max-width: 90%;
+        }
+        
+        .target {
+            background: rgba(159, 75, 255, 0.1);
+            border: 2px solid var(--purple);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        /* SERVIÇOS */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: #1A0033;
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(159, 75, 255, 0.2);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--purple);
+            box-shadow: 0 25px 50px -12px rgba(159, 75, 255, 0.3);
+        }
+        
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--purple);
+        }
+        
+        /* CASES */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .case-card {
+            background: #1A0033;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .case-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .case-visual {
+            height: 220px;
+            background: linear-gradient(135deg, #6A0DAD, #9F4BFF);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+        }
+        
+        .case-visual::after {
+            content: 'CASE';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            font-size: 0.8rem;
+            padding: 4px 14px;
+            border-radius: 9999px;
+            font-family: sans-serif;
+        }
+        
+        .case-content {
+            padding: 1.8rem;
+        }
+        
+        .case-content .service-tag {
+            display: inline-block;
+            background: var(--purple);
+            color: white;
+            font-size: 0.85rem;
+            padding: 4px 14px;
+            border-radius: 9999px;
+            margin-bottom: 1rem;
+        }
+        
+        /* PORTFÓLIO / GALERIA */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(135deg, #1A0033, #2A004D);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+            color: var(--purple);
+        }
+        
+        .gallery-item::after {
+            content: attr(data-title);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(10,10,10,0.9));
+            padding: 20px;
+            font-size: 1.1rem;
+            color: white;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover::after {
+            transform: translateY(0);
+        }
+        
+        /* MAPA */
+        #mapa {
+            background: #110022;
+        }
+        
+        .map-container {
+            background: #0A0A0A;
+            border-radius: 28px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(159, 75, 255, 0.15);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .map-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .map-header h3 {
+            color: var(--purple);
+            font-size: 1.4rem;
+        }
+        
+        .offices {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .office {
+            text-align: center;
+        }
+        
+        .office-pin {
+            width: 60px;
+            height: 60px;
+            background: var(--purple);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 0 0 8px rgba(159, 75, 255, 0.3);
+        }
+        
+        /* WHATSAPP BUTTON */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 68px;
+            height: 68px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+            z-index: 9999;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.7);
+        }
+        
+        /* FOOTER */
+        footer {
+            background: #05050A;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(159, 75, 255, 0.2);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-col h3 {
+            color: var(--purple);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-col a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-col a:hover {
+            color: var(--purple);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .quem-somos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--black);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 3rem;
+                transition: left 0.4s ease;
+                z-index: 1050;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+            
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+        }
+        
+        @media (max-width: 640px) {
+            section {
+                padding: 70px 0;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <nav>
+                <!-- Logo -->
+                <div class="logo">
+                    <span>◼️</span>
+                    PIXELFORGE
+                </div>
+                
+                <!-- Menu Desktop -->
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#home" class="nav-link">Início</a></li>
+                    <li><a href="#quem-somos" class="nav-link">Quem Somos</a></li>
+                    <li><a href="#servicos" class="nav-link">Serviços</a></li>
+                    <li><a href="#cases" class="nav-link">Cases</a></li>
+                    <li><a href="#galeria" class="nav-link">Galeria</a></li>
+                    <li><a href="#mapa" class="nav-link">Presença</a></li>
+                </ul>
+                
+                <!-- Hamburger -->
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Marca que <span class="highlight">joga</span>.<br>Mídia que <span class="highlight">conquista</span>.</h1>
+                    <p>Agência especializada em branding e mídia para jogos de console e PC. Transformamos desenvolvedoras independentes e estúdios AAA em marcas inesquecíveis na América Latina.</p>
+                    <a href="#servicos" class="cta-button">
+                        Conhecer nossos serviços
+                        <span style="font-size: 1.8rem;">→</span>
+                    </a>
+                    <p style="margin-top: 2rem; font-size: 1rem; opacity: 0.7;">Atendemos estúdios de São Paulo, Cidade do México, Buenos Aires, Bogotá e todo o continente.</p>
+                </div>
+                
+                <!-- Visual Hero -->
+                <div class="hero-visual">
+                    <div class="game-icon">
+                        🎮
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUEM SOMOS -->
+    <section id="quem-somos">
+        <div class="container">
+            <h2 class="section-title">Quem Somos</h2>
+            
+            <div class="quem-somos-grid">
+                <div class="quem-somos-text">
+                    <p>A PIXELFORGE é uma agência de publicidade 100% focada em jogos. Nascemos em 2022 com o propósito de ajudar estúdios de desenvolvimento de jogos de console e PC a construir marcas poderosas, lançar títulos com impacto e conquistar comunidades apaixonadas.</p>
+                    <p>Com raízes na América Latina, entendemos o mercado local, a cultura gamer regional e as particularidades de cada plataforma (PlayStation, Xbox, Nintendo Switch, Steam, Epic Games Store).</p>
+                    <p>Nosso time é formado por ex-gamers, designers que já trabalharam em grandes lançamentos e estrategistas de mídia digital que vivem dentro dos jogos.</p>
+                    
+                    <div class="target">
+                        <strong>Público-alvo:</strong><br>
+                        Desenvolvedoras de jogos indie e mid-size • Estúdios AAA com foco na América Latina • Publishers que querem expandir na região • Criadores que buscam identidade visual única e campanhas de lançamento de alto impacto.
+                    </div>
+                </div>
+                
+                <div>
+                    <div style="background: #1A0033; border-radius: 24px; padding: 2rem; text-align: center;">
+                        <h3 style="color: var(--purple); margin-bottom: 1rem;">Por que escolher a PIXELFORGE?</h3>
+                        <ul style="text-align: left; font-size: 1.2rem; line-height: 2; list-style: none;">
+                            <li style="margin-bottom: 1rem;">✅ Especialização total em games</li>
+                            <li style="margin-bottom: 1rem;">✅ Resultados comprovados em +40 lançamentos</li>
+                            <li style="margin-bottom: 1rem;">✅ Conexão direta com a comunidade gamer latina</li>
+                            <li style="margin-bottom: 1rem;">✅ Estratégias que funcionam no console e no PC</li>
+                            <li>✅ Escritórios em São Paulo e Cidade do México</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos">
+        <div class="container">
+            <h2 class="section-title">Serviços Oferecidos</h2>
+            <div class="services-grid">
+                
+                <!-- Serviço 1 -->
+                <div class="service-card">
+                    <span class="service-icon">🔥</span>
+                    <h3>Branding &amp; Identidade Visual</h3>
+                    <p>Criação de logos, paleta de cores, tipografia e universo visual completo para seu jogo. Transformamos sua ideia em uma marca que os jogadores reconhecem instantaneamente.</p>
+                    <a href="#cases" style="color: var(--purple); margin-top: 1.5rem; display: inline-block; font-weight: 600;">Ver case relacionado →</a>
+                </div>
+                
+                <!-- Serviço 2 -->
+                <div class="service-card">
+                    <span class="service-icon">📣</span>
+                    <h3>Campanhas de Lançamento</h3>
+                    <p>Estratégia completa de mídia: teasers, trailers, press kits, anúncios em Steam, consoles e redes sociais. Garantimos que seu jogo chegue ao maior número possível de jogadores.</p>
+                    <a href="#cases" style="color: var(--purple); margin-top: 1.5rem; display: inline-block; font-weight: 600;">Ver case relacionado →</a>
+                </div>
+                
+                <!-- Serviço 3 -->
+                <div class="service-card">
+                    <span class="service-icon">👥</span>
+                    <h3>Influencers &amp; Marketing Social</h3>
+                    <p>Seleção e gestão de streamers, YouTubers e criadores de conteúdo. Campanhas orgânicas e pagas que geram buzz real dentro da comunidade gamer latina.</p>
+                    <a href="#cases" style="color: var(--purple); margin-top: 1.5rem; display: inline-block; font-weight: 600;">Ver case relacionado →</a>
+                </div>
+                
+                <!-- Serviço 4 -->
+                <div class="service-card">
+                    <span class="service-icon">🎥</span>
+                    <h3>Produção Audiovisual</h3>
+                    <p>Trailers cinematográficos, cinemáticas, arte promocional, motion graphics e assets para lojas digitais. Tudo produzido pensando na experiência do jogador.</p>
+                    <a href="#cases" style="color: var(--purple); margin-top: 1.5rem; display: inline-block; font-weight: 600;">Ver case relacionado →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASES DE PROJETOS -->
+    <section id="cases" style="background: #110022;">
+        <div class="container">
+            <h2 class="section-title">Cases de Projetos</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem; font-size: 1.3rem; opacity: 0.85;">Cada case representa um serviço entregue com excelência. Veja como ajudamos desenvolvedoras a brilhar.</p>
+            
+            <div class="cases-grid">
+                
+                <!-- Case 1 - Branding -->
+                <div class="case-card">
+                    <div class="case-visual">🌀</div>
+                    <div class="case-content">
+                        <span class="service-tag">Branding &amp; Identidade Visual</span>
+                        <h3>Shadow Realms – RPG de Ação</h3>
+                        <p>Rebranding completo para o novo jogo da estúdio brasileiro. Criamos logo, universo visual dark-fantasy e identidade que dobrou o número de wishlists na Steam em 48h.</p>
+                        <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; font-size: 0.95rem; opacity: 0.7;">
+                            <div><strong>Cliente:</strong> Shadow Studio</div>
+                            <div><strong>Resultado:</strong> +320% wishlists</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case 2 - Campanhas -->
+                <div class="case-card">
+                    <div class="case-visual">🚀</div>
+                    <div class="case-content">
+                        <span class="service-tag">Campanhas de Lançamento</span>
+                        <h3>Neon Rivals – Multiplayer PC</h3>
+                        <p>Campanha de lançamento cross-platform (Steam + PlayStation). Gerenciamos anúncios pagos, press releases e eventos online que geraram mais de 180 mil jogadores no primeiro mês.</p>
+                        <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; font-size: 0.95rem; opacity: 0.7;">
+                            <div><strong>Cliente:</strong> NeonForge Games</div>
+                            <div><strong>Resultado:</strong> 1.8M visualizações</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case 3 - Influencers -->
+                <div class="case-card">
+                    <div class="case-visual">📺</div>
+                    <div class="case-content">
+                        <span class="service-tag">Influencers &amp; Marketing Social</span>
+                        <h3>Epic Legends – Battle Royale Mobile/PC</h3>
+                        <p>Parceria com 42 streamers e criadores latinos (Brasil, México, Argentina). Campanha gerou 4,2 milhões de impressões orgânicas e pico de 120 mil jogadores simultâneos.</p>
+                        <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; font-size: 0.95rem; opacity: 0.7;">
+                            <div><strong>Cliente:</strong> Legend Studios MX</div>
+                            <div><strong>Resultado:</strong> +450% engajamento</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case 4 - Audiovisual -->
+                <div class="case-card">
+                    <div class="case-visual">🎬</div>
+                    <div class="case-content">
+                        <span class="service-tag">Produção Audiovisual</span>
+                        <h3>Cyber Horizon – Cyberpunk Shooter</h3>
+                        <p>Produção do trailer cinematográfico oficial + 12 assets visuais para a página da Steam. Trailer ultrapassou 2,8 milhões de views em 3 semanas.</p>
+                        <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; font-size: 0.95rem; opacity: 0.7;">
+                            <div><strong>Cliente:</strong> Horizon Interactive</div>
+                            <div><strong>Resultado:</strong> 2.8M views</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA / PORTFÓLIO -->
+    <section id="galeria">
+        <div class="container">
+            <h2 class="section-title">Galeria de Projetos</h2>
+            <div class="gallery">
+                <div class="gallery-item" data-title="Logo Shadow Realms">🌀</div>
+                <div class="gallery-item" data-title="Trailer Neon Rivals">🚀</div>
+                <div class="gallery-item" data-title="Campanha Epic Legends">📺</div>
+                <div class="gallery-item" data-title="Arte Cyber Horizon">🌃</div>
+                <div class="gallery-item" data-title="Branding completo">🎨</div>
+                <div class="gallery-item" data-title="Social media kit">📱</div>
+                <div class="gallery-item" data-title="Assets Steam">🕹️</div>
+                <div class="gallery-item" data-title="Motion graphics">✨</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPA -->
+    <section id="mapa">
+        <div class="container">
+            <h2 class="section-title">Nossa Presença na América Latina</h2>
+            <div class="map-container">
+                <div class="map-header">
+                    <h3>🌎 Atendemos toda a América Latina</h3>
+                    <p style="margin-top: 0.5rem; opacity: 0.85;">Escritórios físicos em São Paulo e Cidade do México. Equipe remota em 6 países.</p>
+                </div>
+                
+                <!-- Mapa SVG -->
+                <svg width="100%" height="460" viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" aria-labelledby="mapTitle" role="img">
+                    <title id="mapTitle">Mapa da América Latina com escritórios em São Paulo e Cidade do México</title>
+                    <!-- Oceano -->
+                    <rect width="900" height="460" fill="#111111"/>
+                    
+                    <!-- América do Norte simplificada -->
+                    <path d="M220 80 L280 120 L260 170 L340 165 L310 230 L380 210 L400 120 Z" fill="#1A1A1A" stroke="#9F4BFF" stroke-width="18" stroke-linejoin="round"/>
+                    
+                    <!-- México / América Central -->
+                    <path d="M310 210 L340 235 L380 228 L410 255 L430 245 L455 270" fill="#1A1A1A" stroke="#9F4BFF" stroke-width="18" stroke-linejoin="round"/>
+                    
+                    <!-- América do Sul -->
+                    <path d="M380 260 Q 410 340 340 400 Q 390 430 470 415 Q 520 340 500 270 Z" fill="#1A1A1A" stroke="#9F4BFF" stroke-width="22" stroke-linejoin="round"/>
+                    
+                    <!-- Pin São Paulo (Brasil) -->
+                    <circle cx="465" cy="375" r="18" fill="#9F4BFF"/>
+                    <circle cx="465" cy="375" r="9" fill="#0A0A0A"/>
+                    <text x="490" y="382" fill="#F5F5F5" font-size="18" font-family="sans-serif" font-weight="700">📍 São Paulo</text>
+                    <text x="490" y="405" fill="#9F4BFF" font-size="14">Escritório BR</text>
+                    
+                    <!-- Pin Cidade do México -->
+                    <circle cx="325" cy="225" r="18" fill="#9F4BFF"/>
+                    <circle cx="325" cy="225" r="9" fill="#0A0A0A"/>
+                    <text x="350" y="232" fill="#F5F5F5" font-size="18" font-family="sans-serif" font-weight="700">📍 Cidade do México</text>
+                    <text x="350" y="255" fill="#9F4BFF" font-size="14">Escritório MX</text>
+                    
+                    <!-- Legenda -->
+                    <text x="650" y="80" fill="#9F4BFF" font-size="22" font-family="sans-serif" font-weight="700">América Latina</text>
+                    <text x="650" y="110" fill="#F5F5F5" font-size="15">• Atendemos Brasil, México, Argentina, Colômbia, Chile, Peru e mais</text>
+                    <text x="650" y="135" fill="#F5F5F5" font-size="15">• +40 projetos entregues em 2024-2025</text>
+                    
+                    <!-- Linha de conexão -->
+                    <line x1="465" y1="375" x2="325" y2="225" stroke="#9F4BFF" stroke-width="3" stroke-dasharray="8 6" opacity="0.6"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>PIXELFORGE</h3>
+                    <p>Agência de mídia e branding especializada em jogos de console e computador.</p>
+                    <p style="margin-top: 1rem; font-size: 0.95rem;">📍 São Paulo • Cidade do México</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contato</h3>
+                    <a href="mailto:contato@pixelforge.agency">contato@pixelforge.agency</a>
+                    <a href="tel:+55119987654321">+55 11 98765-4321</a>
+                    <a href="tel:+525512345678">+52 55 1234-5678</a>
+                    <p style="margin-top: 1.5rem;">Rua dos Pixels, 420 – Vila Madalena, SP</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Links Rápidos</h3>
+                    <a href="#quem-somos">Quem Somos</a>
+                    <a href="#servicos">Serviços</a>
+                    <a href="#cases">Cases</a>
+                    <a href="#mapa">Presença na América Latina</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Siga-nos</h3>
+                    <a href="#" target="_blank">Instagram @pixelforge.agency</a>
+                    <a href="#" target="_blank">X / Twitter @pixelforge</a>
+                    <a href="#" target="_blank">TikTok @pixelforge</a>
+                    <a href="#" target="_blank">Discord da Comunidade</a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                © 2026 PIXELFORGE Agência de Publicidade. Todos os direitos reservados.<br>
+                Feito com ❤️ para a comunidade gamer da América Latina.
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÃO WHATSAPP -->
+    <a href="https://wa.me/5511987654321?text=Ol%C3%A1%20PIXELFORGE!%20Quero%20conversar%20sobre%20branding%20e%20m%C3%ADdia%20para%20o%20meu%20jogo." 
+       class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H3L5.5 17a8.5 8.5 0 0 1-2-5.5 8.5 8.5 0 0 1 8.5-8.5 8.5 8.5 0 0 1 8.5 8.5z"/>
+            <path d="M8 12h.01M12 12h.01M16 12h.01"/>
+        </svg>
+    </a>
+
+    <script>
+        // Menu mobile funcional
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Fechar menu ao clicar em um link
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Scroll suave para âncoras
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY - headerOffset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        console.log('%c✅ Página PIXELFORGE carregada com sucesso! Single-page HTML5 + CSS3 interna.', 'color:#9F4BFF; font-size:13px; font-family:sans-serif');
+    </script>
+</body>
+</html>

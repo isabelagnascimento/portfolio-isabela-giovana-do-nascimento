@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GameBrand – Agência de Publicidade para Jogos</title>
+  <style>
+    /* Reset e configurações gerais */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #121212;
+      color: #fff;
+      font-family: 'Merriweather', serif;
+      line-height: 1.6;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+    h1, h2, h3, a {
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
+    }
+    a {
+      color: #6A0DAD;
+      text-decoration: none;
+    }
+
+    /* Header e Nav */
+    header {
+      padding: 3rem 1rem 2rem;
+      text-align: center;
+      background: #000;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+    }
+    nav {
+      background: #000;
+      padding: 1rem 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+    nav a {
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #6A0DAD;
+    }
+
+    /* Seções */
+    section {
+      padding: 3rem 1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #6A0DAD;
+    }
+    .text-center { text-align: center; }
+
+    /* Portfólio/Galeria */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .gallery-item {
+      background: #fff;
+      color: #121212;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+    .gallery-item:hover {
+      transform: translateY(-8px);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .gallery-item .info {
+      padding: 1rem;
+    }
+
+    /* Mapa interativo */
+    #map {
+      width: 100%;
+      height: 400px;
+      background: #fff;
+      border-radius: 8px;
+      margin-top: 2rem;
+    }
+
+    /* WhatsApp */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25D366;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+    }
+    .whatsapp-btn img {
+      width: 40px;
+      height: 40px;
+    }
+
+    /* Rodapé */
+    footer {
+      padding: 2rem 1rem;
+      text-align: center;
+      background: #000;
+      margin-top: 3rem;
+      font-size: 0.95rem;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      section {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&family=Merriweather&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <h1>GameBrand</h1>
+  <p>Especialistas em mídia e branding para jogos de console e PC</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#quem-somos">Quem Somos</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#cases">Cases</a></li>
+    <li><a href="#portfolio">Portfólio</a></li>
+    <li><a href="#mapa">Atuação</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<section id="quem-somos">
+  <h2>Quem Somos</h2>
+  <p class="text-center">A GameBrand é uma agência de publicidade especializada em mídia e branding para o universo dos games. Atuamos há mais de 10 anos no Brasil e América Latina, com escritórios em São Paulo e no México. Nossa missão é criar campanhas inovadoras e experiências de marca que dialoguem diretamente com o público gamer, utilizando as melhores práticas de comunicação digital e publicidade interativa.</p>
+</section>
+
+<section id="servicos">
+  <h2>Nossos Serviços</h2>
+  <ul style="max-width:600px;margin:2rem auto;list-style:circle;">
+    <li><strong>Advergames:</strong> Criação de jogos personalizados para campanhas publicitárias.</li>
+    <li><strong>Gamificação:</strong> Estratégias para engajamento, geração de leads e fidelização.</li>
+    <li><strong>Publicidade In-Game:</strong> Inserção de anúncios dinâmicos e estáticos em jogos de PC e console.</li>
+    <li><strong>Product Placement:</strong> Integração de marcas e produtos dentro de jogos.</li>
+    <li><strong>Campanhas Digitais:</strong> Planejamento e execução de ações integradas com influenciadores e comunidades gamer.</li>
+    <li><strong>Análise de Métricas:</strong> Monitoramento e relatórios de desempenho das campanhas.</li>
+  </ul>
+</section>
+
+<section id="cases">
+  <h2>Cases de Sucesso</h2>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="https://images.pexels.com/photos/1250263/pexels-photo-1250263.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=200&w=300" alt="Case Red Bull x Worms 3D">
+      <div class="info">
+        <h3>Red Bull x Worms 3D</h3>
+        <p>Integração do energético em mecânica do jogo, com aumento de 35% nas vendas durante a campanha.</p>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.pexels.com/photos/4195143/pexels-photo-4195143.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=200&w=300" alt="Campanha Xbox">
+      <div class="info">
+        <h3>Xbox – Campanha de Lançamento</h3>
+        <p>Anúncios segmentados na interface do console, com engajamento de 1.2M de usuários.</p>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.pexels.com/photos/5552235/pexels-photo-5552235.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=200&w=300" alt="Gamificação Magazine Luiza">
+      <div class="info">
+        <h3>Magazine Luiza – Gamificação de Vendas</h3>
+        <p>Campanha de gamificação que resultou em 40% mais cadastros no app.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <h2>Portfólio</h2>
+  <div class="gallery">
+    <!-- Repetição do padrão acima com outros projetos -->
+    <div class="gallery-item">
+      <img src="https://images.pexels.com/photos/735911/pexels-photo-735911.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=200&w=300" alt="Portfólio 1">
+      <div class="info">
+        <h3>Campanha “Heroes of Brand”</h3>
+        <p>Advergame para lançamento de linha de roupas gamers.</p>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.pexels.com/photos/3775525/pexels-photo-3775525.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=200&w=300" alt="Portfólio 2">
+      <div class="info">
+        <h3>Eventos Online Gamificados</h3>
+        <p>Criação de eventos interativos para marcas de periféricos gamer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mapa">
+  <h2>Atuação na América Latina</h2>
+  <div id="map"></div>
+  <p class="text-center" style="margin-top:1rem;">Escritórios em São Paulo (Brasil) e Cidade do México (México)</p>
+</section>
+
+<section id="contato">
+  <h2>Contato</h2>
+  <p class="text-center">
+    <strong>Email:</strong> contato@gamebrand.com.br<br>
+    <strong>Telefone:</strong> (11) 99999-9999<br>
+    <strong>Endereço:</strong> Av. Paulista, 1000 – São Paulo/SP
+  </p>
+</section>
+
+</main>
+
+<footer>
+  <p>&copy; 2024 GameBrand – Agência de Publicidade para Jogos</p>
+  <p>Desenvolvido com HTML5, CSS3 e foco em experiência gamer.</p>
+</footer>
+
+<!-- Botão WhatsApp -->
+<a href="https://wa.me/5511999999999?text=Ol%C3%A1,%20encontrei%20voc%C3%AAs%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20campanhas%20para%20games." class="whatsapp-btn" target="_blank" aria-label="Fale conosco no WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<!-- Mapa Interativo (SimpleMaps) -->
+<script src="https://simplemaps.com/resources/file/simplemaps-worldmap/simplemaps-worldmap.js"></script>
+<script>
+  var map = new simplemaps_worldmap();
+  map.projection = 'southAmerica';
+  map.addMarker({ latitude: -23.5489, longitude: -46.6388, label: 'São Paulo' });
+  map.addMarker({ latitude: 19.4326, longitude: -99.1332, label: 'Cidade do México' });
+  map.show();
+  document.getElementById('map').appendChild(map.container);
+</script>
+
+</body>
+</html>
