@@ -1,0 +1,92 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Identifiers validation
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // Admin check - needs actual document in 'admins' or checked against 'users' with isAdmin field
+    // For bootstrap, we check the 'users' collection or a dedicated 'admins' collection.
+    // System instructions suggest checking for an 'admins' document.
+    function isAdmin() {
+      return isSignedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    function isEmailVerified() {
+      return request.auth.token.email_verified == true;
+    }
+
+    // User Profile Rules
+    match /users/{userId} {
+      function isValidUser(data) {
+        return data.keys().hasAll(['uid', 'email', 'isAdmin', 'createdAt']) &&
+               data.keys().size() >= 4 &&
+               data.uid is string &&
+               data.email is string &&
+               data.email.size() <= 256 &&
+               data.isAdmin is bool &&
+               data.createdAt is timestamp;
+      }
+
+      allow get: if isSignedIn() && (isOwner(userId) || isAdmin());
+      // No blanket reads or list for users to prevent PII leak
+      
+      allow create: if isSignedIn() && isOwner(userId) && 
+                      isValidUser(request.resource.data) &&
+                      request.resource.data.isAdmin == false && // Users can't make themselves admin
+                      request.resource.data.uid == request.auth.uid &&
+                      request.resource.data.createdAt == request.time;
+      
+      allow update: if isSignedIn() && isOwner(userId) &&
+                      isValidUser(request.resource.data) &&
+                      request.resource.data.isAdmin == resource.data.isAdmin && // Immutable role
+                      request.resource.data.uid == resource.data.uid;
+    }
+
+    // System Settings Rules
+    match /system/config {
+      function isValidConfig(data) {
+        return data.keys().hasAll(['publicMode', 'hiResExport', 'aiDesigner']) &&
+               data.publicMode is bool &&
+               data.hiResExport is bool &&
+               data.aiDesigner is bool;
+      }
+
+      allow get: if isSignedIn();
+      allow write: if isAdmin() && isValidConfig(request.resource.data);
+    }
+
+    // QR History Rules
+    match /history/{historyId} {
+      function isValidHistory(data) {
+        return data.userId is string &&
+               data.data is string &&
+               data.timestamp is timestamp;
+      }
+
+      allow list: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow get: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid && isValidHistory(request.resource.data);
+      allow delete: if isSignedIn() && resource.data.userId == request.auth.uid;
+    }
+
+    // Admin list for helper function
+    match /admins/{adminId} {
+      allow read: if isSignedIn();
+    }
+  }
+}

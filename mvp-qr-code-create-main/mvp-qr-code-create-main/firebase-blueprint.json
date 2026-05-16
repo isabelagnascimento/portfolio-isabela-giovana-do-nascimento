@@ -1,0 +1,60 @@
+{
+  "entities": {
+    "users": {
+      "title": "User",
+      "description": "User profile and permissions",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "isAdmin": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "isAdmin"]
+    },
+    "systemSettings": {
+      "title": "System Settings",
+      "description": "Global configuration for the platform",
+      "type": "object",
+      "properties": {
+        "publicMode": { "type": "boolean" },
+        "hiResExport": { "type": "boolean" },
+        "aiDesigner": { "type": "boolean" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "updatedBy": { "type": "string" }
+      },
+      "required": ["publicMode", "hiResExport", "aiDesigner"]
+    },
+    "qrHistory": {
+      "title": "QR Generation History",
+      "description": "Records of generated and downloaded QR codes",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "data": { "type": "string" },
+        "type": { "type": "string" },
+        "format": { "type": "string" },
+        "size": { "type": "number" },
+        "imageUrl": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "data", "timestamp"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "users",
+      "description": "User profiles"
+    },
+    "system/config": {
+      "schema": "systemSettings",
+      "description": "Global system configuration"
+    },
+    "history/{historyId}": {
+      "schema": "qrHistory",
+      "description": "Global log of generated QR codes"
+    }
+  }
+}
