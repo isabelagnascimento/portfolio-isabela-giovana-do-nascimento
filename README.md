@@ -9,7 +9,7 @@
 
 ---
 ### 👨‍💻 Sobre
-Sou formada em Publicidade e Propaganda (2018) com cerca de 10 anos de experiência em mídia e marketing digital. Atualmente cursando o 1º semestre de **Ciência da Computação** na UNICID. A minha paixão por tecnologia e games trouxe-me para a transição de carreira, com foco de estudo e desenvolvimento na **Área de Dados**.
+Sou formada em Publicidade e Propaganda (2018) com cerca de 10 anos de experiência em mídia e marketing digital. Atualmente cursando o 1º semestre de **Ciência de Dados** na UNIVESP. A minha paixão por tecnologia e games trouxe-me para a transição de carreira, com foco de estudo e desenvolvimento na **Área de Dados**.
 
 * **Habilidades Técnicas:** Python, SQL, Excel Avançado, Engenharia de Prompt Estruturada (XML), Modelagem de Dados LCNC.
 * **Habilidades Socioemocionais:** Visão estratégica, análise quantitativa de métricas, pensamento crítico e governança algorítmica.
