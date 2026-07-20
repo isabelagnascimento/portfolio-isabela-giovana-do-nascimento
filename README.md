@@ -1,5 +1,5 @@
 # Isabela Nascimento
-> Estudante de Ciência da Computação | Foco em Engenharia de Dados e Inteligência Artificial
+> Estudante de Ciência de Dados | Foco em Engenharia de Dados e Inteligência Artificial
 
 ---
 ### 📫 Contato & Redes Sociais
